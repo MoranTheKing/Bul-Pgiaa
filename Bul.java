@@ -18,7 +18,7 @@ public class Bul
 	public String BulKliaa()
 	{
 		String tozaa ="";
-		int countBul=0,countKliaa=0, index1, index2, index3, index4;
+		int countBul=0,countKliaa=0, index1=0;
 		Scanner input = new Scanner(System.in);
 		if(this.guessNum>=1000 && this.guessNum<=9999)
 		{
@@ -28,7 +28,6 @@ public class Bul
 				if(this.arr[0]==this.guessNum/1000)
 				{
 					countBul++;
-					index1 = this.guessNum/1000;
 					tozaa="Bul: " +countBul+", Kliaa: " + countKliaa;
 				}
 				else if(this.arr[0]==(this.guessNum/100)%10 || this.arr[0]==(this.guessNum/10)%10 || this.arr[0] ==this.guessNum%10)
@@ -69,7 +68,7 @@ public class Bul
 				
 				if(countBul==4)
 				{
-					tozaa = "Finished";
+					tozaa = "Finished after " + index1 + " times.";
 					return tozaa;
 				}
 				else if(tozaa=="")
@@ -82,6 +81,7 @@ public class Bul
 				}
 				countBul=0;
 				countKliaa=0;
+				index1++;
 				System.out.println("Please guess the number");
 				this.guessNum = input.nextInt();
 			}
