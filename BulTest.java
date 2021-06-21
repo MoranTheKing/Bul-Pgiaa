@@ -12,7 +12,11 @@ public class BulTest
 		Random rnd = new Random();
 		int [] arr =new int[4];
 		int code = 0000;
-		while(code/1000 == (code/100)%10 || code/1000 == (code/10)%10 || code/1000 == code%10 || (code/100)%10 == (code/10)%10 || (code/100)%10 == code%10 || (code/10)%10 == code%10)
+		int firstDigit = code/1000;
+		int secondDigit = (code/100)%10;
+		int thirdDigit = (code/10)%10;
+		int fourthDigit = code%10;
+		while(firstDigit == secondDigit || firstDigit == thirdDigit || firstDigit == fourthDigit || secondDigit == thirdDigit || secondDigit == fourthDigit || thirdDigit == fourthDigit)
 		{
 			code = rnd.nextInt(9999-1000+1)+1000;
 		}
